@@ -16,6 +16,7 @@ module.
 - Validate the dashboard authentication technology, including Better Auth.
 - Define module lifecycle and first-party module boundaries.
 - Design the agent enrollment, identity, communication, and task model.
+- Prefer Go standard library packages only for implementation to reduce supply-chain risk; build shared code in-repo or as internally authored packages.
 - Establish a minimal Docker Compose development and self-hosting path.
 
 ## 2. Cross-Platform Agent Baseline
