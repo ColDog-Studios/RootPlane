@@ -12,7 +12,7 @@ not a release promise:
 
 | Module | Maturity | Purpose |
 | --- | --- | --- |
-| RMM | Planned — initial focus | Monitor and manage endpoint fleets through policies and automation. |
+| RMM | Planned - initial focus | Monitor and manage endpoint fleets through policies and automation. |
 | Patching | Planned | Manage operating-system and third-party software updates. |
 | Vulnerability management | Planned | Find and prioritize software, OS, and configuration risks. |
 | Asset management | Planned | Maintain device and asset inventory from automated and manual sources. |
@@ -26,7 +26,7 @@ not a release promise:
 
 ## RMM
 
-**Planned — initial focus:** Remote monitoring and management will be the first
+**Planned - initial focus:** Remote monitoring and management will be the first
 major module built on the universal agent.
 
 Intended capabilities include:
@@ -34,8 +34,10 @@ Intended capabilities include:
 - policies with parent-child inheritance and default root policies;
 - conditional alerts;
 - scheduled automation and scheduled tasks;
-- targeting by device, tenant or customer organization, department, site or
+- targeting by device, organization or MSP customer, department, site or
   location, and group;
+- built-in Wake-on-LAN tasks that use approved online agents as same-org
+  relays;
 - Bash and PowerShell script libraries;
 - task schedules with optional expiration;
 - custom fields for devices, organizations, departments, and locations;
@@ -46,6 +48,14 @@ Intended capabilities include:
 - opt-in monitoring for events such as BitLocker or TPM state changes, user
   account changes, login activity, and software installation, removal, or
   updates.
+
+Wake-on-LAN relay behavior should respect organization isolation. Same-site
+agents are preferred, and at least one same-site relay should be selected when
+same-site relays are online. If none are online, policy may allow approved
+cross-site relays within the same organization. Device type should inform
+default relay eligibility: servers and desktops are stronger candidates than
+laptops, remote devices, Wi-Fi clients, or other devices that operators mark as
+unsuitable relays.
 
 **Planned integrations:** OS and third-party patching, warranty-expiration
 alerts, asset inventory, vulnerability findings, and cross-module reporting.
@@ -64,7 +74,7 @@ yet designed.
 
 **Planned:** The module will use recurring privileged assessment to detect
 known software and operating-system vulnerabilities and relevant
-misconfigurations. “Continuous” describes repeated assessment rather than a
+misconfigurations. "Continuous" describes repeated assessment rather than a
 promise of instantaneous detection.
 
 **Planned:** CISA's Known Exploited Vulnerabilities catalog will contribute to
@@ -93,8 +103,8 @@ integrating closely with RMM and asset management.
 ## Ticketing
 
 **Planned:** Ticketing will support requests from end users and work managed by
-technicians. Tickets should be linkable to tenants, customer organizations,
-users, devices, assets, and relevant documentation.
+technicians. Tickets should be linkable to organizations, MSP customers, users,
+devices, assets, and relevant documentation.
 
 **Open Question:** Queues, service agreements, approval workflows, and billing
 connections are not yet specified.

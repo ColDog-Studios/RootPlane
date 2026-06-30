@@ -9,14 +9,23 @@ earlier when they reduce risk for later work.
 **Planned:** Establish the shared control-plane foundation needed by every
 module.
 
-- Define platform administration and the always-multi-tenant hierarchy.
-- Support IT and MSP tenants, including customer organizations and sites for
-  MSPs.
+- Document the AGPLv3-only licensing direction and the no-feature-gating
+  commercial model.
+- Define the dedicated-instance-first tenancy model for IT organizations and
+  MSPs, including customer organizations and sites.
 - Design authentication, authorization, tenant isolation, and audit needs.
-- Validate the dashboard authentication technology, including Better Auth.
+- Design modern authentication support, including local accounts, MFA,
+  passkeys, OIDC/OAuth2, and SAML.
+- Establish PostgreSQL as the primary database and define stateless server
+  behavior for future Kubernetes-style scaling.
+- Establish the React and TypeScript dashboard stack.
 - Define module lifecycle and first-party module boundaries.
 - Design the agent enrollment, identity, communication, and task model.
-- Prefer Go standard library packages only for implementation to reduce supply-chain risk; build shared code in-repo or as internally authored packages.
+- Establish the separate agent repository and cross-repo development workflow.
+- Prefer Go standard library packages where practical to reduce supply-chain
+  risk; allow mature third-party packages where they are safer than custom
+  implementations, especially for authentication, cryptography, database
+  access, and protocols.
 - Establish a minimal Docker Compose development and self-hosting path.
 
 ## 2. Cross-Platform Agent Baseline
@@ -26,6 +35,8 @@ module.
 - Implement enrollment and stable device identity.
 - Report heartbeat, operating-system details, and basic hardware and software
   inventory.
+- Classify device type in agent inventory, including Windows server, desktop,
+  and laptop where detectable, and Linux desktop or laptop where detectable.
 - Execute authorized commands or tasks and report their results.
 - Define safe failure, reconnect, and task-status behavior.
 - Exercise update and recovery design before relying on unattended agent
@@ -43,6 +54,8 @@ product milestone.
 - Add hierarchical policies, default root policies, and conditional alerts.
 - Target devices through organizations, departments, locations, groups, and
   tags.
+- Add Wake-on-LAN tasks with same-organization relay selection, same-site
+  preference, cross-site policy controls, and audit history.
 - Schedule Bash and PowerShell scripts with history and optional expiration.
 - Add reusable automation and custom fields.
 - Introduce opt-in monitoring for selected security, account, session, and
@@ -84,4 +97,5 @@ proven.
 Before promoting a candidate or open question into a committed milestone,
 record the decision and its consequences in the [decision backlog](decisions.md).
 Roadmap changes should preserve tenant isolation, cross-platform agent intent,
-modularity, and a manageable self-hosting experience.
+modularity, free software functionality, and a manageable self-hosting
+experience.

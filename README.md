@@ -3,8 +3,9 @@
 RootPlane is an open, modular control plane for managing, supporting, and
 securing IT environments through one universal agent.
 
-The project is intended for both internal IT teams and managed service
-providers (MSPs). It combines remote monitoring and management with optional
+The project is intended for internal IT teams, managed service providers
+(MSPs), self-hosters, and operators who want to provide managed dedicated
+instances. It combines remote monitoring and management with optional
 capabilities such as patching, vulnerability management, asset management,
 ticketing, documentation, remote control, warranty tracking, billing, mobile
 device management, and reporting.
@@ -15,12 +16,19 @@ device management, and reporting.
 
 ## Direction
 
-- **Committed:** RootPlane will use an always-multi-tenant control plane with
-  distinct IT and MSP tenant types.
+- **Committed:** RootPlane will be AGPLv3-only free software. All product
+  functionality should remain available from source without feature gates.
+- **Committed:** RootPlane will be tenant-aware internally while prioritizing
+  self-hosted and managed dedicated-instance deployments.
 - **Committed:** A cross-platform universal agent will provide shared device
-  management capabilities on Linux and Windows.
+  management capabilities on Linux and Windows, developed in a separate agent
+  repository.
 - **Committed:** Features will be modular so deployments can enable only the
   capabilities they need.
+- **Planned:** The server will use PostgreSQL as its primary database and be
+  designed so stateless application replicas can run behind a load balancer.
+- **Planned:** The dashboard will use a React and TypeScript frontend served by
+  the RootPlane control plane.
 - **Planned:** The first meaningful milestone will pair the universal agent
   with core RMM functionality.
 - **Planned:** Self-hosting will be supported through a straightforward Docker
@@ -50,4 +58,10 @@ designs.
 
 ## License
 
-RootPlane is licensed under the [GNU Affero General Public License v3.0](LICENSE).
+RootPlane is licensed under the [GNU Affero General Public License v3.0
+only](LICENSE).
+
+Paid or supporter offerings may provide services and convenience, such as
+managed dedicated hosting, code-signed agent builds, branded build assistance,
+support, and deployment help. They should not restrict product features or
+functionality that are available from the free software source.
